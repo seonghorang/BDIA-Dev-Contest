@@ -1,4 +1,4 @@
-# Team.DPV(DataPointOfView)
+# Data Point Of View
 
 Data Point Of View 팀의 Repository입니다.
 
