@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>The Big Picture - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/static/css/styles.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+      function stopCamera() {
+        socket.send("stop_camera"); // "stop_camera" 메시지 서버로 전송
+
+        // 비디오 스트림 중지
+        var video = document.getElementById("video");
+        var stream = video.srcObject;
+        if (stream) {
+          var tracks = stream.getTracks();
+          tracks.forEach(function (track) {
+            track.stop();
+          });
+          video.srcObject = null;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">DPV</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#!">Home</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Page Content-->
+    <section>
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5">
+          <div class="col-lg-6">
+            <h1>Real-time Video Analysis</h1>
+            <div id="result"></div>
+            <video id="webcam" autoplay></video>
+            <script type="text/javascript">
+              // 웹캠 비디오 요소와 WebSocket 생성
+              const video = document.getElementById("webcam");
+              const socket = new WebSocket("ws://localhost:8000/stream"); // WebSocket 엔드포인트 URL
+
+              // 웹캠 스트림 가져오기
+              navigator.mediaDevices
+                .getUserMedia({ video: true })
+                .then(function (stream) {
+                  video.srcObject = stream;
+                  // 비디오 스트림에서 프레임을 서버로 전송
+                  const canvas = document.createElement("canvas");
+                  const context = canvas.getContext("2d");
+                  setInterval(function () {
+                    context.drawImage(video, 0, 0, video.width, video.height);
+                    canvas.toBlob(
+                      function (blob) {
+                        socket.send(blob); // 프레임을 서버로 전송
+                      },
+                      "image/jpeg",
+                      0.95
+                    );
+                  }, 1000 / 15); // 15 FPS로 프레임 전송
+                })
+                .catch(function (error) {
+                  console.error("Error accessing the camera:", error);
+                });
+            </script>
+            <!--<video id="video" autoplay controls></video>-->
+            <!--<video controls>
+              <source
+                src="/static/movie/KakaoTalk_20231019_203022280.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>-->
+            <button onclick="stopCamera()">Stop Camera</button>
+            <script>
+              var socket = new WebSocket("ws://localhost:8000/ws");
+              socket.onmessage = function (event) {
+                document.getElementById("result").innerHTML = event.data;
+              };
+
+              // 비디오 스트림 가져오기
+              if (
+                navigator.mediaDevices &&
+                navigator.mediaDevices.getUserMedia
+              ) {
+                navigator.mediaDevices
+                  .getUserMedia({ video: true })
+                  .then(function (stream) {
+                    var video = document.getElementById("video");
+                    video.srcObject = stream;
+                    video.play();
+                  })
+                  .catch(function (error) {
+                    console.error("Error accessing the camera:", error);
+                  });
+              }
+            </script>
+            {{data}}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Bootstrap core JS-->
+    <script src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/static/js/scripts.js"></script>
+  </body>
+</html>
