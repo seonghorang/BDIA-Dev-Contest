@@ -3,6 +3,7 @@
 Data Point Of View 팀의 Repository입니다.
 
 <br>
+
 * [1. 프로젝트 & 팀 소개](#1)
 * [2. 팀 구성](#2)
 * [3. BDIA 교육 과정](#3)
