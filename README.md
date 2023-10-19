@@ -30,7 +30,9 @@ Data Point Of View 팀의 Repository입니다.
 <a id="2"></a>
 
 # 2. 팀 구성
+
 <br>
+
 * 김윤호(Leader)
 * 박성호
 * 이경민
