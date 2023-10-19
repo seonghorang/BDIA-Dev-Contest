@@ -13,7 +13,7 @@ Data Point Of View 팀의 Repository입니다.
 
 # 1. 프로젝트 & 주제 소개
 
-<br><br>
+<br>
 
     우리의 일상 생활에서 전자 매체의 중요성은 점차 증가하고 있습니다. 
     
@@ -32,7 +32,8 @@ Data Point Of View 팀의 Repository입니다.
 
 
     이러한 가치를 보여줄 우리 프로젝트의 주제는 눈 움직임 추적을 통한 졸음 운전 예측입니다.
-<br><br>
+    
+<br>
 
 <a id="2"></a>
 
