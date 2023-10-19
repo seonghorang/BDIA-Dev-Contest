@@ -42,4 +42,4 @@ async def websocket_endpoint(websocket: WebSocket):
         key = cv2.waitKey(5)
         if key == 27:
             break
-    return templates.TemplateResponse("cam.html",{data:data})
+    return templates.TemplateResponse("cam1.html",{data:data})
