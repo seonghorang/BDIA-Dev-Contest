@@ -1,0 +1,14 @@
+##notion_page_url
+https://chief-club-7e4.notion.site/Dlib-a4da8808d26c43fba5ab2b153d8e6d7d
+by_준용씨
+
+
+##Dlib library
+http://dlib.net/
+
+##CMake_download
+https://cmake.org/download/
+
+##VisualStudio 및 추가 패키지
+https://visualstudio.microsoft.com/ko/visual-cpp-build-tools/
+
