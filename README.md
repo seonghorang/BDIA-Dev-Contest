@@ -14,6 +14,10 @@ Data Point Of View 팀의 Repository입니다.
 
 # 1. 프로젝트 & 주제 소개
 
+<p align="center">
+<img src="https://github.com/seonghorang/seonghorang/blob/main/img/dpv.png" width="500" height="300" style="float: right;">
+</p>
+
 <br>
 
     우리의 일상 생활에서 전자 매체의 중요성은 점차 증가하고 있습니다. 
