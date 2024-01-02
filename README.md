@@ -4,9 +4,14 @@ Data Point Of View 팀의 Repository입니다.
 
 <br>
 
-* [1. 프로젝트 & 팀 소개](#1)
+* [1. 프로젝트 & 주제 소개](#1)
 * [2. 팀 구성](#2)
-* [3. BDIA 교육 과정](#3)
+* [3. 데이터](#3)
+* [4. 구현](#4)
+* [5. 역할](#5)
+* [6. 사용 프로그램](#6)
+* [7. 고찰](#7)
+* [8. BDIA 교육 과정](#8)
   
 <br><br>
 
@@ -17,6 +22,10 @@ Data Point Of View 팀의 Repository입니다.
 <p align="center">
 <img src="https://github.com/seonghorang/seonghorang/blob/main/img/dpv.png" width="500" height="300" style="float: right;">
 </p>
+
+### **부산정보산업진흥원/원티드**  
+### **기간:** 2023.10 ~ 2023.11 (8인)
+### **수상:** 베스트테크상
 
 <br>
 
@@ -56,11 +65,52 @@ Data Point Of View 팀의 Repository입니다.
 * 한서영
 * 현수진
 
-
-<br><br>
+<br>
 
 <a id="3"></a>
-# 3. BDIA 교육 과정
+# 3. 데이터
+- AI Hub의 디스플레이 중심 안구 움직임 영상 데이터
+- 졸음운전과 전방 주시 태만에 관한 기사
+
+<br>
+
+<a id="4"></a>
+# 4. 구현
+- AI Hub의 안구 움직임 데이터를 활용한 분석
+- Machine Learning & Deep Learning을 이용해 사용자 이미지의 집중, 태만, 졸음 상태 판단
+- Visioning(객체 인식 기술)을 통한 사용자 실시간 집중, 태만, 졸음 상태 판단
+
+<br>
+
+<a id="5"></a>
+# 5. 역할
+- AI Hub의 안구 움직임 데이터를 활용한 분석
+- 데이터 탐색 과정에서 plotly를 이용해 심화된 시각화 자료 도출
+- 안구영역 좌표값 12개를 이용한 머신러닝 훈련
+- K-fold Cross Validation 및 훈련/테스트 정확도 확인을 통한 최적의 모델 검출
+- Confusion Matrix를 활용한 최종 모델 예측 결과 분석 및 시각화
+
+<br>
+
+<a id="6"></a>
+# 6. 사용 프로그램
+- **언어:** Python
+- **협업 도구:** Notion, Google Drive
+- **전처리:** Python(Pandas, Numpy, OpenCV), Excel
+- **시각화:** Python(Plotly, Matplotlib, seaborn)
+- **머신러닝 & 딥러닝:** TensorFlow, Scikit-learn, OpenCV, Dlib
+
+<br>
+
+<a id="7"></a>
+# 7. 고찰
+- Python 기반의 프로그래밍을 aws와 연결을 통한 배포가 목표였으나, 모듈 및 라이브러리 활용(OpenCV, dlib)의 이유로, <br>
+  aws의 프리 티어 단계에서 제공하는 CPU 레벨의 한계 즉, 배포 서버 구성 한계로 인한 아쉬움이 있었습니다.
+
+<br>
+
+<a id="8"></a>
+# 8. BDIA 교육 과정
 
 * 부산시 빅데이터 분석가 2기
 
